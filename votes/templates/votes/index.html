@@ -1,0 +1,22 @@
+{% extends "votes/base.html" %}
+{% block content %}
+{% if candidates %}
+    {% for candidate in candidates %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ candidate.candidate_name }}</a>
+              <small class="text-muted">{{ candidate.nick_name }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ candidate.category_name }}-{{candidate.county_name}}</a></h2>
+            <p class="article-content">{{ candidate.manifesto }}</p>
+              <p class="article-content"> <button class="btn btn-info">Vote For {{candidate.nick_name}}</button></p>
+          </div>
+        </article>
+
+    {% endfor %}
+{% else %}
+    <p>No Candidates are available.</p>
+{% endif %}
+
+{% endblock content %}
